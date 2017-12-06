@@ -1,5 +1,6 @@
 package edu.sjsu.happypatients.policyserver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
@@ -28,8 +29,8 @@ public class MyResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
     	try {
-
-    		input = new FileInputStream("C:\\Users\\sphoo_000\\Documents\\workspace-sts-3.9.1.RELEASE\\policyserver\\config.properties");
+//    		System.out.println(getClass().getResource("config.properties").getFile());
+    		input = new FileInputStream(new File(getClass().getClassLoader().getResource("config.properties").getFile()));
 
     		// load a properties file
     		prop.load(input);
