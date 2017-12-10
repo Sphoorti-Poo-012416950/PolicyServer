@@ -1,4 +1,4 @@
-package edu.sjsu.happypatients.policyserver;
+package edu.sjsu.cs249.happypatients.policyserver;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
