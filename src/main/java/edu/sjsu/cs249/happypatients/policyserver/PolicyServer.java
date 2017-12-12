@@ -26,8 +26,9 @@ public class PolicyServer {
 	@Path("/get")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getPolicy() {
+		System.out.println("[Policyserver] Getting policy ");
 		String policy = redis.get("fetchpolicy");
-
+		System.out.println("[Policyserver] Got policy: " + policy);
 		if(policy == null) {
 			return setDefaultPolicy();
 		} 
@@ -41,7 +42,6 @@ public class PolicyServer {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.TEXT_PLAIN)
 	public String SetPolicy(String policy) {
-		System.out.println(policy);
 		redis.set("fetchpolicy", policy);
 		return "Policy changed successfully";
 	}
